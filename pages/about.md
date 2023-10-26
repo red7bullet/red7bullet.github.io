@@ -3,7 +3,7 @@ layout: page
 title: About
 description: 全世界无产者，联合起来
 keywords: red7bullet
-comments: false
+comments: true
 menu: 关于
 permalink: /about/
 ---
