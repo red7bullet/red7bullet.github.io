@@ -2,7 +2,7 @@
 layout: default
 ---
 
-{% assign assets_base_url = site.url %}
+{% assign assets_base_url = / %}
 {% if site.cdn.jsdelivr.enabled %}
 {% assign assets_base_url = "https://fastly.jsdelivr.net/gh/" | append: site.repository | append: '@master' %}
 {% endif %}
@@ -16,7 +16,7 @@ layout: default
           {% for tag in page.tags %}
           <span class="meta-info">
             <span class="octicon octicon-tag"></span>
-            <a href="{{ site.url }}/fragments/?tag={{ tag }}" title="{{ tag }}">{{ tag }}</a>
+            <a href="{{ / }}/fragments/?tag={{ tag }}" title="{{ tag }}">{{ tag }}</a>
           </span>
           {% endfor %}
         </div>

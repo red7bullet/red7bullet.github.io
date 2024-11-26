@@ -18,12 +18,12 @@ permalink: /wiki/
 <ul class="listing">
 {% for wiki in site.wiki %}
 {% if wiki.title != "Wiki Template" and wiki.topmost == true %}
-<li class="listing-item"><a href="{{ site.url }}{{ wiki.url }}"><span class="top-most-flag">[置顶]</span>{{ wiki.title }}</a></li>
+<li class="listing-item"><a href="{{ / }}{{ wiki.url }}"><span class="top-most-flag">[置顶]</span>{{ wiki.title }}</a></li>
 {% endif %}
 {% endfor %}
 {% for wiki in site.wiki %}
 {% if wiki.title != "Wiki Template" and wiki.topmost != true %}
-<li class="listing-item"><a href="{{ site.url }}{{ wiki.url }}">{{ wiki.title }}<span style="font-size:12px;color:red;font-style:italic;">{%if wiki.layout == 'mindmap' %}  mindmap{% endif %}</span></a></li>
+<li class="listing-item"><a href="{{ / }}{{ wiki.url }}">{{ wiki.title }}<span style="font-size:12px;color:red;font-style:italic;">{%if wiki.layout == 'mindmap' %}  mindmap{% endif %}</span></a></li>
 {% endif %}
 {% endfor %}
 </ul>
@@ -44,7 +44,7 @@ permalink: /wiki/
 {%- assign item_index = 0 -%}
 {%- for item in sub_group.items -%}
 {%- assign item_index = item_index | plus: 1 -%}
-<a href="{%- if item.type == 'link' -%}{{ item.link }}{%- else -%}{{ site.url }}{{ item.url }}{%- endif -%}" style="display:inline-block;padding:0.5em" {% if item.type == 'link' %} target="_blank" {% endif %} >{{ item.title }}<span style="font-size:12px;color:red;font-style:italic;">{%if item.layout == 'mindmap' %}  mindmap{% endif %}</span></a>{%- if item_index < item_count -%}<span> <b>·</b></span>{%- endif -%}
+<a href="{%- if item.type == 'link' -%}{{ item.link }}{%- else -%}{{ / }}{{ item.url }}{%- endif -%}" style="display:inline-block;padding:0.5em" {% if item.type == 'link' %} target="_blank" {% endif %} >{{ item.title }}<span style="font-size:12px;color:red;font-style:italic;">{%if item.layout == 'mindmap' %}  mindmap{% endif %}</span></a>{%- if item_index < item_count -%}<span> <b>·</b></span>{%- endif -%}
 {%- endfor -%}
 {% endfor %}
 {% endfor %}
