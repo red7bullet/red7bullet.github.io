@@ -1,15 +1,12 @@
 services:
-  jekyll:
+  jekyll_red7bullet:
     image: gh-pages-env
-    container_name: jekyll-container-red7bullet
+    container_name: red7bullet_gh_pages
     restart: always
-    # privileged: true
-    # network_mode: "host"
     volumes:
       - .:/srv/jekyll # 当前目录挂载到容器
-      # - /srv/jekyll/vendor/bundle # 缓存 Gem 依赖
     ports:
-      - "8000:4000" # 映射 Jekyll 默认端口
-      - "38888:35729" # 映射 Jekyll 默认端口
+      - "8000:8000" # 映射 Jekyll 默认端口
+      - "8001:8001" # 映射 Jekyll 默认端口
     command: >
-      sh -c "bundle install && bundle exec jekyll serve --host 0.0.0.0 -P 4000 -I -w -l"
+      sh -c "bundle install && bundle exec jekyll serve --host 0.0.0.0 -P 8000 -I -w -l --livereload_port 8001"
